@@ -75,7 +75,7 @@ void TPQueue<T>::addHead(const T&value)
 template<typename T>
 const T TPQueue<T>::pop()
 {
-  if (head) {
+ // if (head) {
     Item* temp = head->next;
       if (temp) {
         temp->prev = nullptr;
@@ -86,7 +86,7 @@ const T TPQueue<T>::pop()
     delete head;
     head = temp;
     return data;
-  }
+ // }
 }
 
 
