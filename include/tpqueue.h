@@ -26,7 +26,7 @@ class TPQueue {
   Item* tail;
   TPQueue::Item* create(const T&);
  public:
-  TPQueue() : head(nullptr), tail(nullptr){}
+  TPQueue() : head(nullptr), tail(nullptr) {}
   //~TPQueue();
   void addHead(const T&);
   void addTail(const T&);
