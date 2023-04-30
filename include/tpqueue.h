@@ -27,7 +27,7 @@ class TPQueue {
   TPQueue::Item* create(const T&);
  public:
   TPQueue() : head(nullptr), tail(nullptr){};
-  ~TPQueue();
+  //~TPQueue();
   void addHead(const T&);
   void addTail(const T&);
   const T pop();
@@ -91,12 +91,12 @@ const T TPQueue<T>::pop()
 
 
 
-template<typename T>
+/*template<typename T>
 TPQueue<T>::~TPQueue()
 {
     while (head);
     pop();
-}
+}*/
 
 
 template<typename T>
