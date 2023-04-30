@@ -20,13 +20,13 @@ class TPQueue {
   struct Item {
     T data;
     Item* next;
-    Item* prev;    
+    Item* prev;
   };
   Item* head;
   Item* tail;
   TPQueue::Item* create(const T&);
  public:
-  TPQueue() : head(nullptr), tail(nullptr){};
+  TPQueue() : head(nullptr), tail(nullptr){}
   //~TPQueue();
   void addHead(const T&);
   void addTail(const T&);
@@ -35,8 +35,7 @@ class TPQueue {
 };
 
 template<typename T>
-typename::TPQueue<T>::Item* TPQueue<T>::create(const T& value)
-{
+typename::TPQueue<T>::Item* TPQueue<T>::create(const T& value) {
   Item* temp = new Item;
   temp->data = value;
   temp->next = nullptr;
@@ -46,13 +45,12 @@ typename::TPQueue<T>::Item* TPQueue<T>::create(const T& value)
 
 
 template<typename T>
-void TPQueue<T>::addTail(const T& value)
-{
+void TPQueue<T>::addTail(const T& value) {
   if (head && tail) {
     tail->next = create(value);
     tail->next->prev = tail;
     tail = tail->next;
-  } else{
+  } else {
       head = create(value);
       tail = head;
     }
@@ -60,8 +58,7 @@ void TPQueue<T>::addTail(const T& value)
 
 
 template<typename T>
-void TPQueue<T>::addHead(const T&value)
-{
+void TPQueue<T>::addHead(const T&value) {
   if (head && tail) {
     Item* temp = create(value);
     temp->next = head;
@@ -71,11 +68,9 @@ void TPQueue<T>::addHead(const T&value)
       head = tail = create(value);
     }
 }
- 
+
 template<typename T>
-const T TPQueue<T>::pop()
-{
- // if (head) {
+const T TPQueue<T>::pop() {
     Item* temp = head->next;
       if (temp) {
         temp->prev = nullptr;
@@ -86,7 +81,6 @@ const T TPQueue<T>::pop()
     delete head;
     head = temp;
     return data;
- // }
 }
 
 
@@ -100,9 +94,8 @@ TPQueue<T>::~TPQueue()
 
 
 template<typename T>
-void TPQueue<T>::push(const T& value)
-{
-  if(head&&tail) {
+void TPQueue<T>::push(const T& value) {
+  if (head&&tail) {
     if (head->data.GetPrior() < value.GetPrior()) {
       addHead(value);
       return;
@@ -111,7 +104,7 @@ void TPQueue<T>::push(const T& value)
       addTail(value);
       return;
     }
-    if (head->next==nullptr && head->data.GetPrior() <= value.GetPrior()) {
+    if (head->next == nullptr && head->data.GetPrior() <= value.GetPrior()) {
       addTail(value);
       return;
     }
